@@ -1,0 +1,34 @@
+package com.zgy.study.setter4injection.demo11;
+
+import com.zgy.study.chapter02.helloworld.decoupled.MessageProvider;
+
+/**
+ * @author: ZGY <br>
+ * @date: 2019-11-19 21:11 <br>
+ * @description: ConfigurableMessageProvider <br>
+ * @version: 1.0 <br>
+ */
+public class ConfigurableMessageProvider implements MessageProvider {
+
+    private String message;
+
+    public ConfigurableMessageProvider(String message) {
+        System.out.println("ConfigurableMessageProvider(String message)");
+        this.message = message;
+    }
+
+    public ConfigurableMessageProvider(int message) {
+        System.out.println("ConfigurableMessageProvider(int message)");
+        this.message = Integer.toString(message);
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public String toString() {
+        return message;
+    }
+}

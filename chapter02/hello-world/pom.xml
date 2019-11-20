@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>study-spring5</artifactId>
+        <artifactId>chapter02</artifactId>
         <groupId>com.zgy.study</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>hello-world</artifactId>

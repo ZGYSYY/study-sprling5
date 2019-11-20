@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zgy.study.spring5</groupId>
+    <parent>
+        <artifactId>chapter09</artifactId>
+        <groupId>com.zgy.study</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>base-dao</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>

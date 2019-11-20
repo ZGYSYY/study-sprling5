@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="com.zgy.study.setter4injection.demo22"/>
+    <util:map id="map" map-class="java.util.HashMap">
+        <entry key="AAA" value="老子明天不上班"/>
+        <entry key="BBB" value-ref="song"/>
+    </util:map>
+    <util:properties id="properties">
+        <prop key="A">123</prop>
+        <prop key="B">456</prop>
+    </util:properties>
+    <util:set id="set" set-class="java.util.HashSet">
+        <value>我的兄弟叫顺溜</value>
+        <ref bean="song"/>
+    </util:set>
+    <util:list id="list">
+        <value>好好学习，天天向上！</value>
+        <ref bean="song"/>
+    </util:list>
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="injectSimpleConfig" class="com.zgy.study.setter4injection.demo17.InjectSimpleConfig"/>
+
+    <bean id="injectSimple" class="com.zgy.study.setter4injection.demo17.InjectSimple"
+          p:age="#{injectSimpleConfig.age + 100}"
+          p:name="#{injectSimpleConfig.name}"
+          p:ageInSeconds="#{injectSimpleConfig.ageInSeconds}"
+          p:programmer="true"
+          p:height="1000.09"/>
+</beans>

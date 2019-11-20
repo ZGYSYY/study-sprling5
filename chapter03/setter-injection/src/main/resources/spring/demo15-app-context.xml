@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="injectSimple" class="com.zgy.study.setter4injection.demo15.InjectSimple">
+        <property name="name" value="AAA"/>
+        <property name="age" value="20"/>
+        <property name="ageInSeconds" value="1000000000"/>
+        <property name="height" value="52.5"/>
+        <property name="programmer" value="false"/>
+    </bean>
+</beans>

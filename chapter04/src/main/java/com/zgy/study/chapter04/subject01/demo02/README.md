@@ -1,0 +1,1 @@
+### 4.3.2 实现 InitializingBean 接口

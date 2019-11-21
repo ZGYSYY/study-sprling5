@@ -31,5 +31,6 @@
         <module>chapter02</module>
         <module>chapter03</module>
         <module>chapter09</module>
+        <module>chapter04</module>
     </modules>
 </project>

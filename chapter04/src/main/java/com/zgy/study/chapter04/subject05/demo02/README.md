@@ -1,0 +1,1 @@
+## 4.8.2 使用 ApplicationContextAware 接口

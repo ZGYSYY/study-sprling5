@@ -17,7 +17,7 @@ public class Config {
     @Bean(initMethod = "init", destroyMethod = "destroy")
     public DestructiveBean destructiveBean() {
         DestructiveBean destructiveBean = new DestructiveBean();
-        destructiveBean.setFilePath(SystemProperties.getProperty("java.io.tmpdir") + SystemProperties.getProperty("file.separator") + "test.txt");
+        destructiveBean.setFilePath(SystemProperties.getProperty("java.io.tmpdir") + SystemProperties.getProperty("file.separator") + "test.txt.txt");
 
         return destructiveBean;
     }

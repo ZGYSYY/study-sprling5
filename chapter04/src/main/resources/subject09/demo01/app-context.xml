@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd" default-lazy-init="true">
+
+    <util:list id="propertyEditorRegistrarsList">
+        <bean class="com.zgy.study.chapter04.subject09.demo01.PropertyEditorBean$CustomPropertyEditorRegistrar"/>
+    </util:list>
+
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer" p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
+
+    <util:list id="stringList">
+        <value type="java.lang.String">String member 1</value>
+        <value type="java.lang.String">String member 2</value>
+    </util:list>
+
+    <bean id="propertyEditorBean" class="com.zgy.study.chapter04.subject09.demo01.PropertyEditorBean">
+        <property name="bytes" value="ZGY"/>
+        <property name="character" value="A"/>
+        <property name="cls" value="java.lang.String"/>
+        <property name="trueOrFalse" value="true"/>
+        <property name="stringList" ref="stringList"/>
+        <property name="stream" value="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
+        <property name="floatValue" value="3.1415926"/>
+        <property name="date" value="2019-11-22"/>
+        <property name="file" value="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
+        <property name="locale" value="zh_CN"/>
+        <property name="pattern" value="a*b"/>
+        <property name="properties" value="name=ZGY age=23"/>
+        <property name="trimString" value="String need trimming"/>
+        <property name="url" value="https://www.baidu.com"/>
+    </bean>
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+    <property name="Another" value="ZGY"/>
+    <property name="Age" value="23"/>
+    <property name="ContextName" value="chapter06-log"></property>
+
+    <contextName>${ContextName}</contextName>
+
+    <timestamp key="BySecond" datePattern="yyyy-MM-dd HH:mm:ss"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] - %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+        <target>System.err</target>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${ContextName}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-4relative [%thread] - %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

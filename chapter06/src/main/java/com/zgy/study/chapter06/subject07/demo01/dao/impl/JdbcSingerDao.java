@@ -36,8 +36,9 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             String result = "";
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 result += resultSet.getString(1);
+                result += " ";
                 result += resultSet.getString(2);
             }
             statement.close();

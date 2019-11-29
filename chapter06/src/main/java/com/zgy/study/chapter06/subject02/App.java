@@ -13,7 +13,6 @@ public class App {
     private final static Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        System.out.println("开始记录日志=================");
-        LOGGER.info("好哈学习，天天向上");
+        LOGGER.info("好哈学习，天天向上:[{}]", "老子明天不上班");
     }
 }

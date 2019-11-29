@@ -59,6 +59,19 @@ public class DbConfigTest {
         context.close();
     }
 
+    @Test
+    public void test4() {
+        GenericXmlApplicationContext context = new GenericXmlApplicationContext();
+        context.load("classpath:subject05/demo01/application-context3.xml");
+        context.refresh();
+
+        DataSource dataSource = context.getBean("dataSource", DataSource.class);
+        Assert.assertNotNull(dataSource);
+        testDataSource(dataSource);
+
+        context.close();
+    }
+
     private void testDataSource(DataSource dataSource) {
         Connection connection = null;
         try {

@@ -1,4 +1,4 @@
-package com.zgy.study.chapter06.subject02.entities;
+package com.zgy.study.chapter06.subject03.demo01.entities;
 
 import java.io.Serializable;
 import java.util.Date;

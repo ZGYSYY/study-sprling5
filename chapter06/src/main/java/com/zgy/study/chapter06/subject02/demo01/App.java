@@ -1,4 +1,4 @@
-package com.zgy.study.chapter06.subject02;
+package com.zgy.study.chapter06.subject02.demo01;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

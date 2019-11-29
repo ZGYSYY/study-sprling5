@@ -1,6 +1,6 @@
-package com.zgy.study.chapter06.subject02.dao;
+package com.zgy.study.chapter06.subject03.demo01.dao;
 
-import com.zgy.study.chapter06.subject02.entities.Singer;
+import com.zgy.study.chapter06.subject03.demo01.entities.Singer;
 
 import java.util.List;
 

@@ -14,4 +14,6 @@ public interface SingerDao {
     List<Singer> findAll();
 
     List<Singer> findByFirstName(String firsName);
+
+    void update(Singer singer);
 }

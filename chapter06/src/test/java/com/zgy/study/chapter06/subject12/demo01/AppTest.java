@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -50,6 +52,16 @@ public class AppTest {
         singerList.forEach(x -> {
             System.out.println(x);
         });
+    }
+
+    @Test
+    public void test3() throws ParseException {
+        Singer singer = new Singer();
+        singer.setId(3L);
+        singer.setFirstName("Z");
+        singer.setLastName("GY");
+        singer.setBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse("1996-11-18"));
+        singerDao.update(singer);
     }
 
     @After

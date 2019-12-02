@@ -2,6 +2,7 @@ package com.zgy.study.chapter06.subject12.demo01.dao.impl;
 
 import com.zgy.study.chapter06.subject12.demo01.FindByFirstName;
 import com.zgy.study.chapter06.subject12.demo01.SelectAllSingers;
+import com.zgy.study.chapter06.subject12.demo01.UpdateSinger;
 import com.zgy.study.chapter06.subject12.demo01.dao.SingerDao;
 import com.zgy.study.chapter06.subject12.demo01.entities.Singer;
 import org.slf4j.Logger;
@@ -29,11 +30,14 @@ public class JdbcSingerDao implements SingerDao {
 
     private FindByFirstName findByFirstName;
 
+    private UpdateSinger updateSinger;
+
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.selectAllSingers = new SelectAllSingers(dataSource);
         this.findByFirstName = new FindByFirstName(dataSource);
+        this.updateSinger = new UpdateSinger(dataSource);
     }
 
     @Override
@@ -46,5 +50,16 @@ public class JdbcSingerDao implements SingerDao {
         Map<String, String> paramMap = new HashMap<>(16);
         paramMap.put("firstName", firsName);
         return findByFirstName.executeByNamedParam(paramMap);
+    }
+
+    @Override
+    public void update(Singer singer) {
+        Map<String, Object> paramMap = new HashMap<>(16);
+        paramMap.put("firstName", singer.getFirstName());
+        paramMap.put("lastName", singer.getLastName());
+        paramMap.put("birthDate", singer.getBirthDate());
+        paramMap.put("id", singer.getId());
+        updateSinger.updateByNamedParam(paramMap);
+        LOGGER.info("=============> singer 更新成功，id 为：[{}]", singer.getId());
     }
 }

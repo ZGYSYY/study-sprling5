@@ -1,0 +1,1 @@
+## 6.10 使用 ResultSetExtractor 检索嵌套域对象

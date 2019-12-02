@@ -2,8 +2,6 @@ package com.zgy.study.chapter06.subject15.demo01;
 
 import com.zgy.study.chapter06.subject15.demo01.config.AppConfig;
 import com.zgy.study.chapter06.subject15.demo01.dao.SingerDao;
-import com.zgy.study.chapter06.subject15.demo01.entities.Album;
-import com.zgy.study.chapter06.subject15.demo01.entities.Singer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,11 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author ZGY <br>

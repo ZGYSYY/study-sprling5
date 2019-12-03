@@ -35,9 +35,19 @@ public class AppTest {
         LOGGER.info("==================> 执行 public void test1() 方法 =========> GO");
         SingerDao singerDao = context.getBean("singerDaoImpl", SingerDao.class);
         List<Singer> singerList = singerDao.findAll();
-        singerList.forEach(x -> {
-            System.out.println(x);
-        });
+        for (Singer singer : singerList) {
+            LOGGER.info("singer: [{}]", singer);
+            if (!singer.getAlbums().isEmpty()) {
+                for (Album album : singer.getAlbums()) {
+                    LOGGER.info("== album: [{}]", album);
+                }
+            }
+            if (!singer.getInstruments().isEmpty()) {
+                for (Instrument instrument : singer.getInstruments()) {
+                    LOGGER.info("== instrument: [{}]", instrument);
+                }
+            }
+        }
         LOGGER.info("==================> 执行 public void test1() 方法 =========> END");
     }
 

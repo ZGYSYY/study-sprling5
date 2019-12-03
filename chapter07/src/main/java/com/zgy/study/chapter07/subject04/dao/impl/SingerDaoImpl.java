@@ -42,7 +42,10 @@ public class SingerDaoImpl implements SingerDao {
 
     @Override
     public List<Singer> findAllWithAlbum() {
+        // 用法一
         return sessionFactory.getCurrentSession().getNamedQuery("Singer.findAllWithAlbum").list();
+        // 用法二
+        // return sessionFactory.getCurrentSession().createQuery("select distinct s from Singer s left join fetch s.albums a left join fetch s.instruments i").list();
     }
 
     @Override

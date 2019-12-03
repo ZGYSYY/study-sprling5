@@ -2,7 +2,8 @@ package com.zgy.study.chapter07.subject04.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * @author ZGY <br>
@@ -14,7 +15,7 @@ import java.util.List;
 public class Instrument implements Serializable {
 
     private String instrumentId;
-    private List<Singer> singers;
+    private Set<Singer> singers = new LinkedHashSet<>(16);
 
     @Id
     @Column(name = "instrument_id")
@@ -32,13 +33,13 @@ public class Instrument implements Serializable {
      * inverseJoinColumns = @JoinColumn(name = "singer_id")：指定与之关联的另一个表字段为 singer_id <br/>
      * @return
      */
-    @ManyToMany
-    @JoinTable(name = "instrument_id", joinColumns = @JoinColumn(name = "instrument_id"), inverseJoinColumns = @JoinColumn(name = "singer_id"))
-    public List<Singer> getSingers() {
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "singer_instrument", joinColumns = @JoinColumn(name = "instrument_id"), inverseJoinColumns = @JoinColumn(name = "singer_id"))
+    public Set<Singer> getSingers() {
         return singers;
     }
 
-    public void setSingers(List<Singer> singers) {
+    public void setSingers(Set<Singer> singers) {
         this.singers = singers;
     }
 

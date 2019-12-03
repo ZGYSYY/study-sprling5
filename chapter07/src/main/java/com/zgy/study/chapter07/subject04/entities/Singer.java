@@ -75,10 +75,11 @@ public class Singer implements Serializable {
     /**
      * mappedBy = "singer"：album 是通过表 singer 来进行关联的 <br/>
      * cascade = CascadeType.ALL：更新操作应该级联到子级，意思是当 singer 表中的数据修改后，album 表中的数据也会受影响被修改 <br/>
-     * orphanRemoval = true：移除孤儿
+     * orphanRemoval = true：移除孤儿 <br/>
+     * fetch = FetchType.EAGER|FetchType.LAZY：FetchType.LAZY 为默认值，不自动获取关联对象数据。FetchType.EAGER 自动获取关联对象数据，不推荐使用，如果所关联的对象数据在某些情况下没有使用，那么就是在浪费资源。
      * @return
      */
-    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     public Set<Album> getAlbums() {
         return albums;
     }
@@ -93,7 +94,7 @@ public class Singer implements Serializable {
      * inverseJoinColumns = @JoinColumn(name = "instrument_id")：指定与之关联的另一个表字段为 instrument_id <br/>
      * @return
      */
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "singer_instrument",
             joinColumns = @JoinColumn(name = "singer_id"),
             inverseJoinColumns = @JoinColumn(name = "instrument_id"))

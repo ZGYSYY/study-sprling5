@@ -7,6 +7,7 @@ CREATE TABLE singer(
 	first_name VARCHAR(60) NOT NULL,
 	last_name VARCHAR(40) NOT NULL,
 	birth_date DATE,
+    version INT NOT NULL DEFAULT 0,
 	UNIQUE UQ_SINGER_1 (first_name, last_name),
 	PRIMARY KEY (id)
 );
@@ -16,9 +17,10 @@ CREATE TABLE album(
 	singer_id INT NOT NULL,
 	title VARCHAR(100) NOT NULL,
 	release_date DATE,
+    version INT NOT NULL DEFAULT 0,
 	UNIQUE UQ_SINGER_ALBUM_1 (singer_id, title),
 	PRIMARY KEY (id),
-	CONSTRAINT FK_ALBUM FOREIGN KEY (singer_id) REFERENCES singer (id)
+	CONSTRAINT FK_ALBUM_SINGER FOREIGN KEY (singer_id) REFERENCES singer (id)
 );
 
 CREATE TABLE instrument(

@@ -46,7 +46,6 @@ public class Instrument implements Serializable {
     public String toString() {
         return "Instrument{" +
                 "instrumentId='" + instrumentId + '\'' +
-                ", singers=" + singers +
                 '}';
     }
 }

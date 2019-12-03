@@ -12,11 +12,12 @@ import java.util.*;
 @Entity
 @Table(name = "singer")
 @NamedQueries({
-        @NamedQuery(name = "Singer.findAllWithAlbum", query = "select distinct s from Singer s left join fetch s.albums a left join fetch s.instruments i")
+        @NamedQuery(name = "Singer.findAllWithAlbum", query = "select distinct s from Singer s left join fetch s.albums a left join fetch s.instruments i"),
+        @NamedQuery(name = "Singer.findById", query = "select distinct s from Singer s left join fetch s.albums a left join fetch s.instruments i where s.id = :id")
 })
 public class Singer implements Serializable {
 
-    private int id;
+    private Long id;
     private String firstName;
     private String lastName;
     private Date birthDate;
@@ -26,11 +27,11 @@ public class Singer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

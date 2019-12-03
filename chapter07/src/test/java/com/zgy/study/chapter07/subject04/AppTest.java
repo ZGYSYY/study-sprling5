@@ -1,6 +1,7 @@
 package com.zgy.study.chapter07.subject04;
 
 import com.zgy.study.chapter07.subject04.entities.Album;
+import com.zgy.study.chapter07.subject04.entities.Instrument;
 import com.zgy.study.chapter07.subject04.entities.Singer;
 import com.zgy.study.chapter07.subject04.config.AppConfig;
 import com.zgy.study.chapter07.subject04.dao.SingerDao;
@@ -53,6 +54,23 @@ public class AppTest {
                         LOGGER.info("== album: [{}]", album);
                     }
                 }
+            }
+        }
+    }
+
+    @Test
+    public void test3() {
+        SingerDao singerDao = context.getBean("singerDaoImpl", SingerDao.class);
+        Singer singer = singerDao.findById(1L);
+        LOGGER.info("singer: [{}]", singer);
+        if (!singer.getAlbums().isEmpty()) {
+            for (Album album : singer.getAlbums()) {
+                LOGGER.info("== album: [{}]", album);
+            }
+        }
+        if (!singer.getInstruments().isEmpty()) {
+            for (Instrument instrument : singer.getInstruments()) {
+                LOGGER.info("== instrument: [{}]", instrument);
             }
         }
     }

@@ -81,7 +81,7 @@ public class Singer implements Serializable {
      * fetch = FetchType.EAGER|FetchType.LAZY：FetchType.LAZY 为默认值，不自动获取关联对象数据。FetchType.EAGER 自动获取关联对象数据，不推荐使用，如果所关联的对象数据在某些情况下没有使用，那么就是在浪费资源。
      * @return
      */
-    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, targetEntity = Album.class)
     public Set<Album> getAlbums() {
         return albums;
     }

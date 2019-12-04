@@ -57,7 +57,7 @@ public class Album implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "singer_id")
+//    @JoinColumn(name = "singer_id")
     public Singer getSinger() {
         return singer;
     }

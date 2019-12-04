@@ -102,10 +102,12 @@ public class AppTest {
         Album album = new Album();
         album.setTitle("AAAAAAAAAAAAAA");
         album.setReleaseDate(new SimpleDateFormat("yyyy-MM-dd").parse("1996-11-19"));
+        album.setSinger(singer);
         albums.add(album);
         album = new Album();
         album.setTitle("BBBBBBBBBBBBBB");
         album.setReleaseDate(new SimpleDateFormat("yyyy-MM-dd").parse("1996-11-20"));
+        album.setSinger(singer);
         albums.add(album);
         singer.setAlbums(albums);
 
@@ -114,10 +116,24 @@ public class AppTest {
         instrument.setInstrumentId("Piano");
         instruments.add(instrument);
         singer.setInstruments(instruments);
-
         singer = singerDao.save(singer);
 
         LOGGER.info("singer: [{}]", singer);
+
+        if (singer.getId() != null) {
+            singer = singerDao.findById(singer.getId());
+            LOGGER.info("singer: [{}]", singer);
+            if (!singer.getAlbums().isEmpty()) {
+                for (Album singerAlbum : singer.getAlbums()) {
+                    LOGGER.info("==> singerAlbum: [{}]", singerAlbum);
+                }
+            }
+            if (!singer.getInstruments().isEmpty()) {
+                for (Instrument singerInstrument : singer.getInstruments()) {
+                    LOGGER.info("==> singerInstrument: [{}]", singerInstrument);
+                }
+            }
+        }
     }
 
     @After

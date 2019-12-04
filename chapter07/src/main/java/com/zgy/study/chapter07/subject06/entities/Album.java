@@ -1,4 +1,4 @@
-package com.zgy.study.chapter07.subject05.entities;
+package com.zgy.study.chapter07.subject06.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

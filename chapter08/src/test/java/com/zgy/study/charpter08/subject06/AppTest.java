@@ -1,6 +1,8 @@
 package com.zgy.study.charpter08.subject06;
 
 import com.zgy.study.chapter08.subject06.config.AppConfig;
+import com.zgy.study.chapter08.subject06.entities.Album;
+import com.zgy.study.chapter08.subject06.entities.Instrument;
 import com.zgy.study.chapter08.subject06.entities.Singer;
 import com.zgy.study.chapter08.subject06.service.SingerService;
 import org.junit.After;
@@ -37,6 +39,24 @@ public class AppTest {
         List<Singer> singerList = singerService.findAllByNativeQuery();
         for (Singer singer : singerList) {
             LOGGER.info("singer: [{}]", singer);
+        }
+    }
+
+    @Test
+    public void test2() {
+        List<Singer> singerList = singerService.findByCriteriaQuery("John", "Mayer");
+        for (Singer singer : singerList) {
+            LOGGER.info("singer: [{}]", singer);
+            if (!singer.getAlbums().isEmpty()) {
+                for (Album album : singer.getAlbums()) {
+                    LOGGER.info("==> album: [{}]", album);
+                }
+            }
+            if (!singer.getInstruments().isEmpty()) {
+                for (Instrument instrument : singer.getInstruments()) {
+                    LOGGER.info("==> instrument: [{}]", instrument);
+                }
+            }
         }
     }
 

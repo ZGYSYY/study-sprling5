@@ -12,4 +12,6 @@ import java.util.List;
 public interface SingerService {
 
     List<Singer> findAllByNativeQuery();
+
+    List<Singer> findByCriteriaQuery(String firstName, String lastName);
 }

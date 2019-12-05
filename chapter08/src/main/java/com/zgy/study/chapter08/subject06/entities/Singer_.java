@@ -1,9 +1,5 @@
 package com.zgy.study.chapter08.subject06.entities;
 
-import com.zgy.study.chapter08.subject06.entities.Album;
-import com.zgy.study.chapter08.subject06.entities.Instrument;
-import com.zgy.study.chapter08.subject06.entities.Singer;
-
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;

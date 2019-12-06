@@ -31,3 +31,17 @@ CREATE TABLE singer_instrument(
 	CONSTRAINT fk_singer_instrument_1 FOREIGN KEY(singer_id) REFERENCES singer(id) ON DELETE CASCADE,
 	CONSTRAINT fk_singer_instrument_2 FOREIGN KEY(instrument_id) REFERENCES instrument(instrument_id)
 );
+
+create table singer_audit(
+    id int not null AUTO_INCREMENT,
+    first_name varchar(60) not null,
+    last_name varchar(40) not null,
+    birth_date date,
+    version int not null default 0,
+    created_by varchar(20),
+    created_date timestamp,
+    last_modified_by varchar(20),
+    last_modified_date timestamp,
+    unique UQ_SINGER_AUDIT_1(first_name, Last_name),
+    primary key(id)
+);

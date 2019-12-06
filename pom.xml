@@ -101,6 +101,11 @@
                 <artifactId>spring-aspects</artifactId>
                 <version>5.2.2.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-envers</artifactId>
+                <version>5.4.9.Final</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

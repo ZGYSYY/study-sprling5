@@ -13,23 +13,21 @@ import java.util.Date;
 public class Singer {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "LAST_NAME")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "BIRTH_DATE")
+    @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @Column(name = "VERSION")
     @Version
-    private String version;
+    private int version;
 
     public Long getId() {
         return id;
@@ -63,7 +61,7 @@ public class Singer {
         this.birthDate = birthDate;
     }
 
-    public String getVersion() {
+    public int getVersion() {
         return version;
     }
 

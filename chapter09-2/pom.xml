@@ -41,5 +41,9 @@
             <artifactId>transactions-hibernate4</artifactId>
             <version>5.0.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 </project>

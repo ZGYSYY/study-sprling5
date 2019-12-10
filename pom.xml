@@ -119,5 +119,6 @@
         <module>chapter09-2</module>
         <module>chapter07</module>
         <module>chapter08</module>
+        <module>chapter17</module>
     </modules>
 </project>

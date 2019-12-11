@@ -1,5 +1,7 @@
 package com.zgy.study.chapter17.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -22,9 +24,12 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebSocketConfig.class);
+
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new EchoHandler());
+        LOGGER.info("=======================> 执行了 public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) 方法");
+        registry.addHandler(new EchoHandler(), "/echoHandler");
     }
 
     /**
@@ -34,7 +39,11 @@ public class WebSocketConfig implements WebSocketConfigurer {
         @Override
         protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
             // message.getPayload()：所接收的 WebSocket 消息的内容包含在该方法中。
-            session.sendMessage(new TextMessage(message.getPayload()));
+            if ("ping".equals(message.getPayload())) {
+                session.sendMessage(new TextMessage(message.getPayload()));
+            } else {
+                session.sendMessage(new TextMessage(message.getPayload() + "！"));
+            }
         }
     }
 }

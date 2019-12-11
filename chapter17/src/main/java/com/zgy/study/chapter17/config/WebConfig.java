@@ -1,5 +1,7 @@
 package com.zgy.study.chapter17.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -20,6 +22,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebConfig.class);
+
     /**
      * 相当于 <mvc:default-servlet-handler/> 标签的作用。
      * @param configurer
@@ -35,6 +39,7 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        LOGGER.info("=============> 执行了 public void addViewControllers(ViewControllerRegistry registry) 方法");
         registry.addViewController("/").setViewName("/static/index.html");
     }
 }

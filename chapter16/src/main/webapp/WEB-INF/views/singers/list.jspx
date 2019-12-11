@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <h1>Singer 测试</h1>
+    <c:if test="${not empty singerList}">
+        <table>
+            <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${singerList}" var="singer">
+                <tr>
+                    <td>${singer.firstName}</td>
+                    <td>${singer.lastName}</td>
+                    <td>${singer.phone}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+</div>
